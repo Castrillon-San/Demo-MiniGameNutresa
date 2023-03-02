@@ -21,7 +21,6 @@ public class PuntajeJugador : MonoBehaviour
 
     public void Enviar()
     {
-        if (textoNombre.text == "") return;
         nombreJugador = textoNombre.text;
         PlayerPrefs.SetString("nombreJugador", nombreJugador);
         EnviarPorPost();

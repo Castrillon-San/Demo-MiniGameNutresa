@@ -27,6 +27,7 @@ public class ScoreCounter : MonoBehaviour
 
     public void UpdateScore()
     {
+        if (counterPoints == 21) return;
         counterPoints += 1;
         counterText.text = $"{counterPoints}";
     }
