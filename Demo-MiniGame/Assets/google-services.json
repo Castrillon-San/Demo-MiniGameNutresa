@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "199800667161",
+    "firebase_url": "https://fir-minigame-default-rtdb.firebaseio.com",
+    "project_id": "fir-minigame",
+    "storage_bucket": "fir-minigame.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:199800667161:android:a5e6a743f4c594561dfe88",
+        "android_client_info": {
+          "package_name": "com.xy.demonutresa"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "199800667161-bs995ja5hadpqrg0vamqpuugvfktf85m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDPkxH9OQyBy8GGysNBYkIB7-GL5EIeadA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "199800667161-bs995ja5hadpqrg0vamqpuugvfktf85m.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
