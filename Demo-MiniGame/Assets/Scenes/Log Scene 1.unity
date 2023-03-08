@@ -484,6 +484,8 @@ GameObject:
   - component: {fileID: 164290307}
   - component: {fileID: 164290306}
   - component: {fileID: 164290305}
+  - component: {fileID: 164290308}
+  - component: {fileID: 164290309}
   m_Layer: 5
   m_Name: UsernameInput
   m_TagString: Untagged
@@ -648,6 +650,31 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 164290303}
   m_CullTransparentMesh: 1
+--- !u!114 &164290308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 164290303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56393f797a0f7e94e95547f5052052a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &164290309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 164290303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc33a39070010f94fb1c2dd721c1286d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  showHtmlElement: 1
 --- !u!1 &185871438
 GameObject:
   m_ObjectHideFlags: 0
@@ -2231,6 +2258,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c67ca91c86cda1408c201cc0506a65d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelSelectorCanva: {fileID: 391753003}
+  formCanva: {fileID: 472296291}
   textoNombre: {fileID: 164290305}
 --- !u!4 &1025236214
 Transform:
@@ -2717,7 +2746,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1165556694}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1025236213}
+        m_TargetAssemblyTypeName: PuntajeJugador, Assembly-CSharp
+        m_MethodName: Enviar
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1165556694
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4044,7 +4085,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1908280688}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1025236213}
+        m_TargetAssemblyTypeName: PuntajeJugador, Assembly-CSharp
+        m_MethodName: NextScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1908280688
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4322,7 +4375,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2100081281}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1025236213}
+        m_TargetAssemblyTypeName: PuntajeJugador, Assembly-CSharp
+        m_MethodName: NextScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2100081281
 MonoBehaviour:
   m_ObjectHideFlags: 0

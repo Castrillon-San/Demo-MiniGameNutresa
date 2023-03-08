@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 
 public class PuntajeJugador : MonoBehaviour
 {
+    [SerializeField] GameObject levelSelectorCanva;
+    [SerializeField] GameObject formCanva;
     public TMP_InputField textoNombre;
     public static string nombreJugador;
     void Start()
@@ -24,7 +26,8 @@ public class PuntajeJugador : MonoBehaviour
         nombreJugador = textoNombre.text;
         PlayerPrefs.SetString("nombreJugador", nombreJugador);
         EnviarPorPost();
-        NextScene();
+        formCanva.SetActive(false);
+        levelSelectorCanva.SetActive(true);
     }
 
     public void EnviarPorPost()
@@ -32,6 +35,7 @@ public class PuntajeJugador : MonoBehaviour
         Usuario usuario = new Usuario();
         RestClient.Post("https://fir-minigame-default-rtdb.firebaseio.com/.json", usuario);
     }
+
 
     public void NextScene()
     {

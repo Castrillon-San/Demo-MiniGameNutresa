@@ -7,6 +7,7 @@ public class ClickObject : MonoBehaviour
 {
     [SerializeField] Transform gondolaPos;
 
+
     private void OnMouseDown()
     {
         transform.DOMove(gondolaPos.position, 1f);

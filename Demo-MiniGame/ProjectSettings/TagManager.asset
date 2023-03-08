@@ -5,6 +5,15 @@ TagManager:
   serializedVersion: 2
   tags:
   - MainCanvas
+  - TeOriginal
+  - TeBienestar
+  - InfusionCalienteMangoCoco
+  - InfusionCurcuma
+  - TeFrutosRojos
+  - TeVerdePina
+  - TeNegro
+  - InfusionTeVerdeSpirulina
+  - InfusionTeVerdeSpirulinaAzul
   layers:
   - Default
   - TransparentFX
