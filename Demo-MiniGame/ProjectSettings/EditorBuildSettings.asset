@@ -15,6 +15,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Log Scene 1.unity
     guid: 30fc5612d5bc7f24d860832191b90b60
   - enabled: 1
-    path: Assets/Scenes/Main 1.unity
+    path: Assets/Scenes/Golosinas.unity
     guid: 55dbbf5bbeeb25b4d8ff12e5097ca205
   m_configObjects: {}

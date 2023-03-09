@@ -6,13 +6,17 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] TMP_Text userText;
-    [SerializeField] TMP_Text ldUsername, ldScore;
+    [SerializeField] TMP_Text userText, victoryBannerUser, victoryBannerScore;
+    //[SerializeField] TMP_Text ldUsername, ldScore;
     [SerializeField] AudioSource audioSrc;
     [SerializeField] List<AudioClip> clipList;
     [SerializeField] private int victoryCounter = 0;
     [SerializeField] GameObject victoryCanva;
     [SerializeField] GameObject parentSlots;
+    [SerializeField] GameObject victoryButton;
+    
+    CanvasGroup[] objectsInteractables;
+
     public static GameManager Instance { get; private set; }
     private void Awake()
     {
@@ -29,17 +33,18 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
+        objectsInteractables = parentSlots.transform.GetComponentsInChildren<CanvasGroup>();
         TimeCounter.Instance.StartTimer();
         victoryCounter = parentSlots.transform.childCount;
         string username = PlayerPrefs.GetString("nombreJugador");
         userText.text += $"\n{username}";
     }
 
-    public void UpdateLeaderboard()
-    {
-        ldUsername.text = PlayerPrefs.GetString("nombreJugador");
-        ldScore.text = ScoreCounter.Instance.counterPoints.ToString();
-    }
+    //public void UpdateLeaderboard()
+    //{
+    //    ldUsername.text = PlayerPrefs.GetString("nombreJugador");
+    //    ldScore.text = ScoreCounter.Instance.counterPoints.ToString();
+    //}
 
     public void SoundEffect(int audioIndex)
     {
@@ -59,8 +64,15 @@ public class GameManager : MonoBehaviour
 
     public void Win()
     {
+        foreach (var item in objectsInteractables)
+        {
+            item.blocksRaycasts = false;
+        }
+        victoryBannerUser.text = PlayerPrefs.GetString("nombreJugador");
+        victoryBannerScore.text = TimeCounter.Instance.scoreUser;
         Leaderboard.Instance.SetLeaderboardEntry(PlayerPrefs.GetString("nombreJugador"), (int)TimeCounter.Instance.timeRunning * -1);
         SoundEffect(2);
+        victoryButton.SetActive(true);
         victoryCanva.SetActive(true);
         TimeCounter.Instance.EndTimer();
     }
