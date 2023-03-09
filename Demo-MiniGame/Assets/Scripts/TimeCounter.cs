@@ -9,10 +9,12 @@ public class TimeCounter : MonoBehaviour
     private TimeSpan timeSpan;
     [SerializeField] TMP_Text textTimer;
     private bool timerBool;
-    private float timeRunning;
-    private static string scoreUser;
+    [NonSerialized]
+    public float timeRunning;
+    [NonSerialized]
+    public string scoreUser;
+    
     public static TimeCounter Instance { get; private set; }
-    public static string ScoreUser { set => scoreUser = value; }
 
     private void Awake()
     {

@@ -59,6 +59,7 @@ public class GameManager : MonoBehaviour
 
     public void Win()
     {
+        Leaderboard.Instance.SetLeaderboardEntry(PlayerPrefs.GetString("nombreJugador"), (int)TimeCounter.Instance.timeRunning * -1);
         SoundEffect(2);
         victoryCanva.SetActive(true);
         TimeCounter.Instance.EndTimer();
