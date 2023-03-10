@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject victoryCanva;
     [SerializeField] GameObject parentSlots;
     [SerializeField] GameObject victoryButton;
+    [SerializeField] GameObject buttonNextLevel;
+    private static bool doneLevel = false;
     
     CanvasGroup[] objectsInteractables;
 
@@ -74,7 +77,14 @@ public class GameManager : MonoBehaviour
         SoundEffect(2);
         victoryButton.SetActive(true);
         victoryCanva.SetActive(true);
+        if (doneLevel == false) buttonNextLevel.SetActive(true);
+        doneLevel = true;
         TimeCounter.Instance.EndTimer();
+    }
+
+    public void NextScene(int sceneIndex)
+    {
+        SceneManager.LoadScene(sceneIndex);
     }
 
 }

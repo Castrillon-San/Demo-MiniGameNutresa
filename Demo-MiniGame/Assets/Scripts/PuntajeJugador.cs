@@ -29,8 +29,8 @@ public class PuntajeJugador : MonoBehaviour
     //}
 
 
-    public void NextScene()
+    public void NextScene(int sceneIndex)
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(sceneIndex);
     }
 }
