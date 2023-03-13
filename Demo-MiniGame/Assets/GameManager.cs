@@ -17,8 +17,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject victoryButton;
     [SerializeField] GameObject buttonNextLevel;
     private static bool doneLevel = false;
-    
-    CanvasGroup[] objectsInteractables;
+
+    CanvasGroup[] objectsInteractables; 
+    public List<RectTransform> tranformsInteractables;
 
     public static GameManager Instance { get; private set; }
     private void Awake()
@@ -40,7 +41,7 @@ public class GameManager : MonoBehaviour
         TimeCounter.Instance.StartTimer();
         victoryCounter = parentSlots.transform.childCount;
         string username = PlayerPrefs.GetString("nombreJugador");
-        userText.text += $"\n{username}";
+        userText.text = $"{username}";
     }
 
     //public void UpdateLeaderboard()
@@ -77,7 +78,7 @@ public class GameManager : MonoBehaviour
         SoundEffect(2);
         victoryButton.SetActive(true);
         victoryCanva.SetActive(true);
-        if (doneLevel == false) buttonNextLevel.SetActive(true);
+        //if (doneLevel == false) buttonNextLevel.SetActive(true);
         doneLevel = true;
         TimeCounter.Instance.EndTimer();
     }

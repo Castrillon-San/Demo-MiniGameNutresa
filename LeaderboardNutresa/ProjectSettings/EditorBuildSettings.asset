@@ -5,10 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/InfusionesLeaderboard.unity
     guid: 3b1c0143c53959f409f0762aa3377d28
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/GolosinasLeaderboard.unity
     guid: 045e87dad351c2442b0e23aac30252df
   m_configObjects: {}

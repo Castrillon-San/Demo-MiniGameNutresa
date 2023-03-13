@@ -12946,7 +12946,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: cc09489e0ceae8940b42beac0030b6b7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 804b8329861943444ac1a356d0776a13, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -21022,6 +21022,7 @@ MonoBehaviour:
   parentSlots: {fileID: 647591438}
   victoryButton: {fileID: 487146436}
   buttonNextLevel: {fileID: 396042576}
+  tranformsInteractables: []
 --- !u!4 &1833897090
 Transform:
   m_ObjectHideFlags: 0

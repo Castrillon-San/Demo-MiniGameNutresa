@@ -4,20 +4,27 @@ using Unity.VisualScripting;
 using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using System.Numerics;
+
 public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler, IDropHandler
 {
     private Canvas canvas;
     private RectTransform rectTransform;
-    [NonSerialized] public Vector2 initPosition;
+    [NonSerialized] public UnityEngine.Vector2 initPosition;
     [NonSerialized] public bool isPlaced = false, wasCorrectAnswer = false;
     private CanvasGroup canvasGroup;
     private ItemSlot refItemSlot;
+    UnityEngine.Vector3 myScale, scaledSize, myVector;
     private void Awake()
     {
         canvas = GameObject.FindGameObjectWithTag("MainCanvas").gameObject.GetComponent<Canvas>();
         rectTransform = GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();
+        rectTransform.localScale += new UnityEngine.Vector3(0.3f,0.3f);
         initPosition = rectTransform.anchoredPosition;
+        myScale = rectTransform.localScale;
+        myVector = new UnityEngine.Vector3(0.3f, 0.3f, 0);
+        scaledSize = rectTransform.localScale - myVector;
     }
     public void OnBeginDrag(PointerEventData eventData)
     {
@@ -25,6 +32,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
         canvasGroup.alpha = 0.6f;
         canvasGroup.blocksRaycasts = false;
         isPlaced = false;
+        rectTransform.localScale = scaledSize;
         GameManager.Instance.SoundEffect(0);
     }
 
@@ -35,6 +43,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        if(wasCorrectAnswer == false) rectTransform.localScale = myScale;
         canvasGroup.alpha = 1f;
         canvasGroup.blocksRaycasts = true;
         if (isPlaced == false)
@@ -45,6 +54,10 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
                 CorrectMatch();
                 refItemSlot = null;
             }
+        }
+        if(isPlaced == true)
+        {
+            rectTransform.localScale = scaledSize;
         }
     }
 
