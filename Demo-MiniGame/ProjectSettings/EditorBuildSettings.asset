@@ -8,10 +8,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Log Scene.unity
     guid: 30fc5612d5bc7f24d860832191b90b60
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Te 1.unity
     guid: e04344fe66a473f4496432fd0da2752b
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Golosinas.unity
     guid: 55dbbf5bbeeb25b4d8ff12e5097ca205
   - enabled: 0

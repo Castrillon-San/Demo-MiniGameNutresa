@@ -22,9 +22,10 @@ public class ItemSlot : MonoBehaviour, IDropHandler
             eventData.pointerDrag.GetComponent<DragDrop>().ReceiveItemSlot(this);
             GameManager.Instance.SoundEffect(1);
             canvaGroup.blocksRaycasts = false;
+            gameObject.GetComponent<Image>().color = Color.red;
             if (eventData.pointerDrag.gameObject.CompareTag(checkTag))
             {
-                    gameObject.GetComponent<Image>().color = Color.green;
+                gameObject.GetComponent<Image>().color = Color.green;
                 GameManager.Instance.VictoryCounter(-1);
                 eventData.pointerDrag.GetComponent<DragDrop>().wasCorrectAnswer = true;
             }

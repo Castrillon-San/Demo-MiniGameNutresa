@@ -28,12 +28,17 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     }
     public void OnBeginDrag(PointerEventData eventData)
     {
-        if (isPlaced == true && refItemSlot != null) CorrectMatch(); 
+        if (isPlaced == true && refItemSlot != null)
+        {
+            CorrectMatch();
+            refItemSlot.GetComponent<UnityEngine.UI.Image>().color = Color.white;
+        }
         canvasGroup.alpha = 0.6f;
         canvasGroup.blocksRaycasts = false;
         isPlaced = false;
         rectTransform.localScale = scaledSize;
         GameManager.Instance.SoundEffect(0);
+        
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -47,7 +52,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
         canvasGroup.alpha = 1f;
         canvasGroup.blocksRaycasts = true;
         if (isPlaced == false)
-        { 
+        {
             rectTransform.anchoredPosition = initPosition;
             if(refItemSlot != null)
             {
@@ -75,7 +80,6 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
         refItemSlot.canvaGroup.blocksRaycasts = true;
         if (wasCorrectAnswer == true)
         {
-            refItemSlot.GetComponent<UnityEngine.UI.Image>().color = Color.white;
             GameManager.Instance.VictoryCounter(1);
             wasCorrectAnswer = false;
         }

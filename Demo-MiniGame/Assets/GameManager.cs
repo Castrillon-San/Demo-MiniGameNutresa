@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
 
     CanvasGroup[] objectsInteractables; 
     public List<RectTransform> tranformsInteractables;
+    public List<RectTransform> gondolaExpandibles;
 
     public static GameManager Instance { get; private set; }
     private void Awake()
