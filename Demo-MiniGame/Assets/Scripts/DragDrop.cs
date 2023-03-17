@@ -28,6 +28,13 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     }
     public void OnBeginDrag(PointerEventData eventData)
     {
+        if (GameManager.Instance.gondolaLevel)
+        {
+            gameObject.transform.parent = GameManager.Instance.interactablesParent.transform; 
+            GameManager.Instance.positionedParent.SetActive(false);
+            GameManager.Instance.writeZone.text = gameObject.name;
+        }
+       
         if (isPlaced == true && refItemSlot != null)
         {
             CorrectMatch();
@@ -38,7 +45,13 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
         isPlaced = false;
         rectTransform.localScale = scaledSize;
         GameManager.Instance.SoundEffect(0);
-        
+
+        if (!GameManager.Instance.gondolaLevel) return;
+        foreach(RectTransform _object in GameManager.Instance.gondolaExpandibles)
+        {
+            _object.localScale += new UnityEngine.Vector3(0.5f, 0.5f);
+            _object.localPosition += new UnityEngine.Vector3(0, -100f);
+        }
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -48,11 +61,14 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        if(wasCorrectAnswer == false) rectTransform.localScale = myScale;
+        GameManager.Instance.positionedParent.SetActive(true);
+        GameManager.Instance.writeZone.text = "";
+        if (wasCorrectAnswer == false) rectTransform.localScale = myScale;
         canvasGroup.alpha = 1f;
         canvasGroup.blocksRaycasts = true;
         if (isPlaced == false)
         {
+            if (GameManager.Instance.gondolaLevel) gameObject.transform.parent = GameManager.Instance.interactablesParent.transform;
             rectTransform.anchoredPosition = initPosition;
             if(refItemSlot != null)
             {
@@ -63,6 +79,13 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
         if(isPlaced == true)
         {
             rectTransform.localScale = scaledSize;
+            if (GameManager.Instance.gondolaLevel) gameObject.transform.parent = GameManager.Instance.positionedParent.transform;
+        }
+        if (!GameManager.Instance.gondolaLevel) return;
+        foreach (RectTransform _object in GameManager.Instance.gondolaExpandibles)
+        {
+            _object.localScale -= new UnityEngine.Vector3(0.5f, 0.5f);
+            _object.localPosition += new UnityEngine.Vector3(0, 100f);
         }
     }
 

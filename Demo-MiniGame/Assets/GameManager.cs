@@ -16,10 +16,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject parentSlots;
     [SerializeField] GameObject victoryButton;
     [SerializeField] GameObject buttonNextLevel;
-    private static bool doneLevel = false;
+    [SerializeField] public TMP_Text writeZone;
+    public bool gondolaLevel = false;
 
     CanvasGroup[] objectsInteractables; 
-    public List<RectTransform> tranformsInteractables;
+    public GameObject interactablesParent, positionedParent;
     public List<RectTransform> gondolaExpandibles;
 
     public static GameManager Instance { get; private set; }
@@ -69,6 +70,7 @@ public class GameManager : MonoBehaviour
 
     public void Win()
     {
+        writeZone.transform.parent.gameObject.SetActive(false);
         foreach (var item in objectsInteractables)
         {
             item.blocksRaycasts = false;
@@ -80,7 +82,6 @@ public class GameManager : MonoBehaviour
         victoryButton.SetActive(true);
         victoryCanva.SetActive(true);
         //if (doneLevel == false) buttonNextLevel.SetActive(true);
-        doneLevel = true;
         TimeCounter.Instance.EndTimer();
     }
 

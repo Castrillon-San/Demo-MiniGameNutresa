@@ -6,12 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: Assets/Scenes/InfusionesLeaderboard.unity
-    guid: 3b1c0143c53959f409f0762aa3377d28
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 1
-    path: Assets/Scenes/GolosinasLeaderboard.unity
+    path: Assets/Scenes/Infusiones-1.unity
     guid: 9fa846e445fa43f4f96a534430059341
+  - enabled: 0
+    path: Assets/Scenes/Infusiones-2.unity
+    guid: a892496d2d7975c48864a7a9a9e7744d
+  - enabled: 0
+    path: Assets/Scenes/Golosinas-1.unity
+    guid: 06dae0dd45731ee4e968975078a489c9
+  - enabled: 1
+    path: Assets/Scenes/Golosinas-2.unity
+    guid: 6c09c9b08b425bc43978fd73f26e6501
   m_configObjects: {}

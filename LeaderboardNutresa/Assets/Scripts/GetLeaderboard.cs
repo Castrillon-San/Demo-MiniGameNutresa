@@ -9,10 +9,13 @@ public class GetLeaderboard : MonoBehaviour
 {
     [SerializeField] private string publicLeaderboardKey = "";
     [SerializeField] private List<TextMeshProUGUI> names1, names2, winners;
-    [SerializeField] private List<TextMeshProUGUI> scores1, scores2, winnersScores;
-
+    [SerializeField] private List<TextMeshProUGUI> scores1, scores2, winnersScores, finalWinners, finalScores;
+    [SerializeField] private AudioSource audioSrc;
+    [SerializeField] private List<AudioClip> clipList;
+    private bool hasFinished = false;
     void Update()
     {
+        if(hasFinished) return;
         GetMyLeaderboard();
     }
 
@@ -54,5 +57,28 @@ public class GetLeaderboard : MonoBehaviour
             }
 
         }));
+    }
+
+    public void RewardingCeremony(GameObject _object)
+    {
+        for (int i = 0; i < winners.Count; i++)
+        {
+            finalWinners[i].text = winners[i].text;
+            finalScores[i].text = winnersScores[i].text;
+        }
+        StartCoroutine(SetReward(_object));
+        hasFinished = true;
+    }
+
+    IEnumerator SetReward(GameObject _object)
+    {
+        yield return new WaitForSeconds(0.5f);
+        audioSrc.clip = clipList[0];
+        audioSrc.Play();
+        yield return new WaitForSeconds(1.95f);
+        audioSrc.clip = clipList[1];
+        audioSrc.Play();
+        _object.SetActive(true);
+
     }
 }
