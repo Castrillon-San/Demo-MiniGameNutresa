@@ -30,11 +30,10 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     {
         if (GameManager.Instance.gondolaLevel)
         {
-            gameObject.transform.parent = GameManager.Instance.interactablesParent.transform; 
+            gameObject.transform.SetParent(GameManager.Instance.interactablesParent.transform, false); 
             GameManager.Instance.positionedParent.SetActive(false);
-            GameManager.Instance.writeZone.text = gameObject.name;
         }
-       
+        GameManager.Instance.writeZone.text = gameObject.name;
         if (isPlaced == true && refItemSlot != null)
         {
             CorrectMatch();
@@ -68,7 +67,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
         canvasGroup.blocksRaycasts = true;
         if (isPlaced == false)
         {
-            if (GameManager.Instance.gondolaLevel) gameObject.transform.parent = GameManager.Instance.interactablesParent.transform;
+            if (GameManager.Instance.gondolaLevel) gameObject.transform.SetParent(GameManager.Instance.interactablesParent.transform, false);
             rectTransform.anchoredPosition = initPosition;
             if(refItemSlot != null)
             {
@@ -79,7 +78,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
         if(isPlaced == true)
         {
             rectTransform.localScale = scaledSize;
-            if (GameManager.Instance.gondolaLevel) gameObject.transform.parent = GameManager.Instance.positionedParent.transform;
+            if (GameManager.Instance.gondolaLevel) gameObject.transform.SetParent(GameManager.Instance.positionedParent.transform, false);
         }
         if (!GameManager.Instance.gondolaLevel) return;
         foreach (RectTransform _object in GameManager.Instance.gondolaExpandibles)
